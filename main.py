@@ -214,5 +214,10 @@ if __name__ == '__main__':
 
     users = []
     for user_id in args.user_ids:
-        users.append(main.parse_xml(main.send_xml_request(main.get_url(user_id))))
+        user = main.parse_xml(main.send_xml_request(main.get_url(user_id)))
+        users.append(user)
+        if len(user["games"]) == 0:
+            pass
+            print(f"WARNING: {user['steamID']} has 0 games! Check that they have their game list publicly visible. "
+                  f"On Steam, set \"Edit Profle\" -> \"Privacy Settings\" -> \"Game details\" to \"Public\".")
     print(main.format_compare_dict(main.compare_games(users)))
