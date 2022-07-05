@@ -75,11 +75,17 @@ class Main:
             if game not in self.game_name_cache:
                 self.game_name_cache[game] = games[game]["name"]
 
+    def get_user_name(self, user_id):
+        return self.user_name_cache[user_id]
+
+    def get_game_name(self, app_id):
+        return self.game_name_cache[app_id]
+
     def format_compare_dict(self, compare_dict):
         prepped_dict = self.sort_compare_dict(self.remove_games_with_only_one_owner(compare_dict))
         output = ""
         for game, users in prepped_dict.items():
-            output += f"{self.game_name_cache[game]}: {[self.user_name_cache[user] for user in users]}\n"
+            output += f"{self.get_game_name(game)}: {[self.get_user_name(user) for user in users]}\n"
         return output[:-1]
 
 
