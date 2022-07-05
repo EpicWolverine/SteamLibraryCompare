@@ -10,12 +10,14 @@ class Main:
         self.user_name_cache = {}
         self.game_name_cache = {}
 
-    def get_url(self, user_id):
+    @staticmethod
+    def get_url(user_id):
         if user_id.isnumeric():
             return f"https://steamcommunity.com/profiles/{user_id}/games/?tab=all&xml=1"
         return f"https://steamcommunity.com/id/{user_id}/games?tab=all&xml=1"
 
-    def send_xml_request(self, url):
+    @staticmethod
+    def send_xml_request(url):
         return requests.get(url).content.decode()
 
     def parse_xml(self, xml):
@@ -26,9 +28,6 @@ class Main:
         xml_dict["steamID"] = self.get_element_text(games_list_tag, "steamID")
         games = games_list_tag.getElementsByTagName("games")[0].getElementsByTagName("game")
         for game in games:
-            # print("*****Game*****")
-            # self.print_element_text(game, "name")
-            # self.print_element_text(game, "hoursOnRecord")
             xml_dict["games"][self.get_element_text(game, "appID")] = {
                 "name": self.get_element_text(game, "name"),
                 "hoursOnRecord": self.get_element_text(game, "hoursOnRecord")
@@ -36,9 +35,6 @@ class Main:
         self.cache_user_name(xml_dict)
         self.cache_game_names(xml_dict["games"])
         return xml_dict
-
-    def print_element_text(self, parent_element, tag):
-        print(f"{tag}: {self.get_element_text(parent_element, tag)}")
 
     @staticmethod
     def get_element_text(parent_element, tag_name):
