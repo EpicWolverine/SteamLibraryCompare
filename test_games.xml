@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gamesList>
+	<steamID64>76561198025674497</steamID64>
+	<steamID><![CDATA[EpicWolverine]]></steamID>
+	<games>
+		<game>
+			<appID>976730</appID>
+			<name><![CDATA[Halo: The Master Chief Collection]]></name>
+			<logo><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/976730/capsule_184x69.jpg]]></logo>
+			<storeLink><![CDATA[https://steamcommunity.com/app/976730]]></storeLink>
+			<hoursLast2Weeks>5.1</hoursLast2Weeks>
+			<hoursOnRecord>388</hoursOnRecord>
+			<statsLink><![CDATA[https://steamcommunity.com/id/EpicWolverine/stats/976730]]></statsLink>
+			<globalStatsLink><![CDATA[https://steamcommunity.com/stats/976730/achievements/]]></globalStatsLink>
+		</game>
+		<game>
+			<appID>296910</appID>
+			<name><![CDATA[8BitBoy]]></name>
+			<logo><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/296910/capsule_184x69.jpg]]></logo>
+			<storeLink><![CDATA[https://steamcommunity.com/app/296910]]></storeLink>
+		</game>
+	</games>
+</gamesList>
